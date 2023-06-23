@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Customer Data</title>
+    </head>
+    <body>
+        <h1>Customer Data</h1>
+        <table>
+            <tr>
+                <th><h2>id</h2></th>
+                <th><h2>First Name</h2></th>
+                <th><h2>Last Name</h2></th>
+                <th><h2>email</h2></th>
+                <th><h2>City</h2></th>
+                <th><h2>Country</h2></th>
+            </tr>
+            {% for i in customer_data %}
+
+            <tr>
+                <td>{{ i.id}}</td>
+                <td>{{ i.first_name}}</td>
+                <td>{{ i.last_name}}</td>
+                <td>{{ i.email}}</td>   
+                <td>{{ i.addresses.0.city}}</td>
+                <td>{{ i.addresses.0.country}}</td>     
+            </tr>        
+
+            {% endfor %}
+
+        </table>
+
+        <table>
+            <tr>
+                <th><h2>Country</h2></th>
+                <th><h2>Count</h2></th>
+            </tr>
+            {% for country, count in country_count.items %}
+
+            <tr>
+                <td>{{ country }}</td>
+                <td>{{ count }}</td>
+            </tr>       
+
+            {% endfor %}
+        </table>
+        <h1>Filtered Data</h1>
+        <table>
+            <tr>
+                <th><h2>id</h2></th>
+                <th><h2>First Name</h2></th>
+                <th><h2>Last Name</h2></th>
+                <th><h2>email</h2></th>
+                <th><h2>City</h2></th>
+                <th><h2>Country</h2></th>
+            </tr>
+            {% for i in filtered_names %}
+
+            <tr>
+                <td>{{ i.id}}</td>
+                <td>{{ i.first_name}}</td>
+                <td>{{ i.last_name}}</td>
+                <td>{{ i.email}}</td>   
+                <td>{{ i.addresses.0.city}}</td>
+                <td>{{ i.addresses.0.country}}</td>     
+            </tr>        
+
+            {% endfor %}
+        </table>
+    </body>
+</html>
